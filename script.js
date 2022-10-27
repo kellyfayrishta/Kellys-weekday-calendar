@@ -13,23 +13,17 @@ $('#currentDay').text(moment().format("MMM Do YY"))
 // WHEN I refresh the page
 // THEN the saved events persist
 
-
-
-
 $(document).ready(function () {
   // listen for save button clicks
   $(".saveBtn").on("click", function () {
     // get nearby values
-    var value = $(this).siblings('description').val();
+    var value = $(this).siblings('.description').val();
     var time = $(this).parent().attr('id')
-    console.log("time", time)
+    console.log("this", time)
     console.log("value", value)
+
     // save in localStorage
     localStorage.setItem(time, value)
-
-    // Show notification that item was saved to localStorage by adding class 'show'
-
-    // Timeout to remove 'show' class after 5 seconds --> use setTimeOut
   });
     
     setTimeout(function () {
@@ -59,8 +53,6 @@ $(document).ready(function () {
       }
 
     }
-
-
     var timeBlock = $('.time-block').each(eachFunction)
     console.log("timeBlock", timeBlock)
     // inside this loop, // check if we've moved past this time. If we have, make the row grey. If it's future, make it green. if it's past, make it red. Using the past, present, and future classes in css file
